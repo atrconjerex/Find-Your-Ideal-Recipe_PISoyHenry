@@ -9,7 +9,7 @@ const dietsController = require('../controllers/diets');
 // Ejemplo: router.use('/auth', authRouter);
 // router.get('/recipes', recipesController.getRecipes);
 router.get('/recipes', recipesController.getRecipes);
-router.get('/recipes/:idReceta', recipesController.getRecipesid);
+router.get('/recipes/:id', recipesController.getRecipesid);
 router.post('/recipe', recipesController.postRecipe);
 
 router.use('/diets', dietsController); 

@@ -1,7 +1,7 @@
 const { Diet } = require ('../db.js');
 const router = require('express').Router();
 
-router.get('/types', function(req, res, next) {
+router.get('/', function(req, res, next) {
     const diets = [
         "gluten free",
         "dairy free",

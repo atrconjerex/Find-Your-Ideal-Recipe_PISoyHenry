@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Monsieur+La+Doulaise&family=Archivo+Black');
+
+.title{
+    font-family: 'Monsieur La Doulaise';
+    font-size: 80px;
+    background-image: linear-gradient(to top, rgba(251, 194, 235, 0.144) 0%, rgba(166, 192, 238, 0.534) 100%);
+    color: rgb(0, 0, 0);
+	text-shadow: 0 0 5px rgb(0, 255, 106), 0 0 10px rgba(0, 255, 106), 0 0 20px rgba(0, 255, 106), 0 0 40px rgb(38, 127, 60);
+}
+
+.button{
+    font-family: 'Archivo Black';
+    background-color: #25c45a;
+    border: 2px solid #060509;
+    border-radius: 15px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 16px 24px;
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    width: 100px;
+    will-change: transform;
+}
+
+.button:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.button:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.back {
+    background-image: url('../../assets/images/VIDA_SALUDABLE.jpg');
+    display: flex;
+    min-height: 100vh;
+    min-width: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}

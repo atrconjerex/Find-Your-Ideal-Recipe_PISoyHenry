@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Monsieur+La+Doulaise&family=Archivo+Black');
+
+.contains{
+    align-items: normal;
+}
+
+.input{
+  border: solid 1px rgba(28, 29, 28, 0.418);
+  border-radius: 23px;
+  text-indent: 10px;
+  border-color:#1c1d1c;
+  height: 28px;
+  font-weight: 510;
+  text-align: left;
+  opacity: 0.60;
+  margin-bottom: 5px;
+  opacity:none;  
+}
+
+.button{
+    font-family: 'Archivo Black';
+    background-color: #25c45a;
+    border: 2px solid #060509;
+    border-radius: 15px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 5px;
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    will-change: transform;
+}
+  
+.button:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.button:active {
+    box-shadow: none;
+    transform: translateY(0);
+} 

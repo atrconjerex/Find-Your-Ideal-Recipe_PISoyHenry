@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico&family=Archivo+Black');
+
+.card {
+    font-family: 'Pacifico';
+    background: rgba(238, 238, 227, 0.787);
+    height: 500px;
+    width: 350px;
+    backdrop-filter: blur(6px);
+    border: 10px solid #1c1d1c;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 3px solid black;
+    color: #000000;
+    opacity: 60%;
+}
+
+.card:hover {
+    background: rgba(46, 46, 43, 0.787);
+    color: #ffffff;
+    border: 3px solid rgb(255, 255, 255);
+    box-shadow: rgba(252, 252, 252, 0.25) 0 8px 15px;
+}
+
+.card:active {
+    box-shadow: none;
+}
+
+
+.image{
+    height: 200px;
+    width: 300px;
+    margin: 20px;
+    border: 3px solid rgba(162, 211, 152, 0.705);
+    box-shadow: rgba(88, 226, 111, 0.788) 0 8px 15px;
+    border-radius: 15px;
+}
+
+.diet{
+    font-family: 'Archivo Black';
+    line-height: 0;
+}

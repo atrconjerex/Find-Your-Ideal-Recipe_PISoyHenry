@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Monsieur+La+Doulaise&family=Archivo+Black');
+
+.head {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-evenly;
+    background-image: linear-gradient(to top, rgba(11, 44, 15, 0.651) 0%, rgba(98, 156, 121, 0.596) 100%);
+    margin-bottom: 20px;
+}
+
+.title{
+    font-family: 'Monsieur La Doulaise';
+    font-size: 60px;
+    color: rgb(0, 0, 0);
+	text-shadow: 0 0 5px rgb(0, 255, 106), 0 0 10px rgba(0, 255, 106), 0 0 20px rgba(0, 255, 106), 0 0 40px rgb(38, 127, 60);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    min-width: 100vh;   
+    background:linear-gradient(rgba(5, 7, 12, 0.198), rgba(5, 7, 12, 0.65)), url(../../assets/images/BackHome.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+} 
+
+.select{
+    border: solid 2px rgba(28, 29, 28, 0.418);
+    border-radius: 23px;
+    text-indent: 1px;
+    border-color:#1c1d1c;
+    height: 28px;
+    font-weight: 510;
+    text-align: left;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    opacity: 0.40;
+}  
+
+.button{
+    font-family: 'Archivo Black';
+    background-color: #25c45a;
+    border: 2px solid #060509;
+    border-radius: 15px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 5px;
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    will-change: transform;
+}
+
+  
+.button:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.button:active {
+    box-shadow: none;
+    transform: translateY(0);
+} 
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-family: 'Archivo Black';
+    font-size: 21px;
+    text-transform: capitalize;  
+}
+
+.recipe {    
+    margin: 10px;
+    float: left;
+    text-decoration: none;
+    opacity: none;  
+}
+
+.bordercont{
+  background: rgba(5, 7, 12, 0.876);
+  padding: 10px;
+  margin: 0  auto;
+  justify-content: center;
+  width: 1200px;
+  border-radius: 25px;
+  font-family: 'Archivo Black';
+  opacity: none;
+  color: lavender;
+  margin-bottom: 100px;
+}
+
+.loading{
+    font-family: 'Monsieur La Doulaise';
+    font-size: 60px;
+    color: rgb(255, 255, 255);
+}

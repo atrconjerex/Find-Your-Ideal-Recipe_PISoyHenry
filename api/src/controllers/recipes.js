@@ -1,11 +1,12 @@
 const { Recipe, Diet } = require ('../db.js');
 const axios = require('axios');
 const { API_KEY } = process.env;
-const APIURL = 'https://api.spoonacular.com/recipes/';
+
 
 //UTIL FUNCTIONS =========================================
 const getAPIInfo = async () => {
-    const api = await axios.get(`${APIURL}complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`)
+  try { 
+    const api = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`)
     const apiInfo = api.data.results.map(d => {
         return {
             ID: d.id,
@@ -20,6 +21,7 @@ const getAPIInfo = async () => {
         }
     })
     return apiInfo;
+ } catch (error) {next(error)};  
 }
 
 const getDBInfo = async () => {
@@ -49,23 +51,23 @@ const getRecipes = async (req, res) => {
     if(name) {
         let recipeName = recipesTotal.filter(d => d.name.toLowerCase().includes(name.toLowerCase()))
         recipeName.length ?
-            res.status(200).send(recipeName) :
-            res.status(418).json({ msg: 'La receta no existe' })
+        res.status(200).send(recipeName) :
+        res.status(418).json({ msg: 'La receta no existe' })
     } else {
-        try {
-          res.send(recipesTotal)
-        } catch (error) {next(error)};  
+        res.status(200).send(recipesTotal);
     }
 };
 
 const getRecipesid = async (req, res) => {
-    const { idReceta } = req.params;
+    const { id } = req.params;
     const allRecipes = await getAllRecipes();
-    if(idReceta) {
-        let recipeId = allRecipes.filter(e => e.ID == idReceta) // cambiar aca
+    if(id) {
+        let recipeId = allRecipes.filter(e => e.ID == id) // cambiar aca
         recipeId.length ?
-          res.status(200).json(recipeId) :
-          res.status(418).json({ msg: 'No se encontro la receta' })
+        res.status(200).json(recipeId) :
+        res.status(418).json({ msg: 'Recipe not find' })
+    } else {
+        res.status(404).json({ msg: 'Recipe id is not find' })
     }
 };
 

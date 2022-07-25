@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css?family=Monsieur+La+Doulaise&family=Archivo+Black');
+
+.contains{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(rgba(5, 7, 12, 0.198), rgba(5, 7, 12, 0.65)), url('../../assets/images/recipe.jpg');
+}
+
+.form{
+    background: rgba(81, 129, 131, 0.589);
+    padding: 10px;
+    margin: 50px  auto;
+    width: 800px;
+    border-radius: 20px;
+    font-family: 'Archivo Black';
+    color: lavender;
+    margin-bottom: 100px;
+}
+
+.input{
+    border: solid 1px rgba(28, 29, 28, 0.418);
+    border-radius: 20px;
+    text-indent: 10px;
+    border-color:#1c1d1c;
+    height: 28px;
+    width: 400px;
+    font-weight: 510;
+    text-align: left;
+    opacity: 0.75;
+    margin-bottom: 5px;
+}
+  
+.summary{
+    border: solid 1px rgba(28, 29, 28, 0.418);
+    border-radius: 23px;
+    text-indent: 10px;
+    border-color:#1c1d1c;
+    height: 80px;
+    width: 400px;
+    font-weight: 510;
+    text-align: left;
+    opacity: 0.75;
+    margin-bottom: 5px;
+    opacity:none;
+    line-height: 2;
+}
+  
+  
+  
+.steps{
+    border: solid 1px rgba(28, 29, 28, 0.418);
+    border-radius: 23px;
+    text-indent: 10px;
+    border-color:#1c1d1c;
+    height: 200px;
+    width: 400px;
+    font-weight: 510;
+    text-align: left;
+    opacity: 0.75;
+    margin-bottom: 5px;
+    opacity:none;
+    line-height: 2;
+}
+  
+.diets{
+    border: solid 1px rgba(28, 29, 28, 0.418);
+    border-radius: 23px;
+    text-indent: 1px;
+    border-color:#1c1d1c;
+    height: 28px;
+    font-weight: 510;
+    text-align: left;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    opacity: 0.75;
+}  
+  
+.button {
+    float: right;
+    font-family: 'Archivo Black';
+    background-color: #4b9162;
+    border: 2px solid #060509;
+    border-radius: 15px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    width: 100px;
+    will-change: transform;
+}
+
+.button:hover {
+      color: 2px solid #060509;
+      background-color: #4a4a47;
+      box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+      transform: translateY(-2px);
+}
+    
+.button:active {
+      box-shadow: none;
+      transform: translateY(0);
+}
+
+.buttonCreate {
+    font-family: 'Archivo Black';
+    background-color: #4b9162;
+    border: 2px solid #060509;
+    border-radius: 15px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    width: 300px;
+    will-change: transform;
+}
+
+.buttonCreate:hover {
+      color: 2px solid #060509;
+      background-color: #4a4a47;
+      box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+      transform: translateY(-2px);
+}
+    
+.buttonCreate:active {
+      box-shadow: none;
+      transform: translateY(0);
+}
+
+
+.subcontains{
+    font-family: 'Archivo Black';
+    margin: 10px;
+    border-radius: 15px;
+    padding: 10px;
+    width: 300px;
+    background-color: rgba(96, 158, 122, 0.63);
+    text-align: center;
+    text-transform: capitalize;
+}
+  
+.buttonDelete {
+    float: right;
+    background-color: transparent;
+    border: 2px solid #47444a;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #d3c9f8;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: normal;
+    outline: none;
+    padding: 0 10px;
+    text-align: center;
+    text-indent:none;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 30px;
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    opacity:none;
+}
+
+.buttonDelete:hover {
+      color: #fff;
+      background-color: #1A1A1A;
+      box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+      transform: translateY(-2px);
+}
+    
+.buttonDelete:active {
+      box-shadow: none;
+      transform: translateY(0);
+}  
+
+.inputDiets {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.err {
+    color: red;
+    font-size: 18px;
+    -webkit-text-stroke: 0.5px black;
+}
