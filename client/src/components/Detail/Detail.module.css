@@ -80,12 +80,11 @@
   
 .titles{
     font-size: 30px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     font-family: 'Archivo Black';
 }
   
 .steps{
-    font-size: 20px;
     margin-bottom: 5px;
     line-height: 2;
     font-family: 'Archivo Black';
@@ -93,9 +92,13 @@
 }
   
 .summary{
+    font-size: 22px;
     line-height: 2;
     font-family: 'Archivo Black';
     font-weight: 300;
+    text-align: center;
+    padding-left: 7px;
+    padding-right: 7px;
 }
   
 .dish{

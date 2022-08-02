@@ -2,8 +2,7 @@
 
 .title{
     font-family: 'Monsieur La Doulaise';
-    font-size: 80px;
-    background-image: linear-gradient(to top, rgba(251, 194, 235, 0.144) 0%, rgba(166, 192, 238, 0.534) 100%);
+    font-size: 100px;
     color: rgb(0, 0, 0);
 	text-shadow: 0 0 5px rgb(0, 255, 106), 0 0 10px rgba(0, 255, 106), 0 0 20px rgba(0, 255, 106), 0 0 40px rgb(38, 127, 60);
 }
@@ -15,8 +14,11 @@
     border-radius: 15px;
     color: #ffffff;
     cursor: pointer;
-    font-size: 20px;
-    padding: 16px 24px;
+    font-size: 24px;
+    font-weight: 700;
+    text-shadow: 0 0 6px rgb(6, 6, 6);
+    text-decoration: none;
+    padding: 16px 18px;
     text-align: center;
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
     width: 100px;
@@ -35,15 +37,14 @@
     transform: translateY(0);
 }
 
-.back {
-    background-image: url('../../assets/images/VIDA_SALUDABLE.jpg');
-    display: flex;
-    min-height: 100vh;
-    min-width: 100vh;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
+
+.video {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
 }

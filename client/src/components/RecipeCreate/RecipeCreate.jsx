@@ -10,19 +10,21 @@ function validate(input) {
     if (!input.name || /[@!#$%&/0-9]/g.test(input.name)) {
         errors.name = "A valid name is required (must not have symbols or numbers)";
     } else if (!input.dish_summary) {
-        errors.dish_summary = "Dish Summary is required";
-    } else if (!input.image) {
-        errors.image = "The link image of recipe is required";
-    } else if (input.score > 100 || input.score <= 0) {
-        errors.score = "The score has to be lower than 100";
-    } else if (input.healthScore > 100  || input.healthScore <= 0) {
-        errors.healthScore = "The healt has to be lower than 100";
-    } else if (!input.instructions) {
-        errors.instructions = "The Steps Instructions are required";
-    } else if (input.diets.length === 0) {
-        errors.diets = "Select one type of diet at least";
-    }
+        errors.dish_summary = "Dish Summary is required";  
+    // } else if (!input.instructions) {
+    //     errors.instructions = "The Steps Instructions are required";
+    } 
     return errors;
+}
+
+function validateminor(input) {
+    let minorerrors = {};
+    if (input.healthScore > 100  || input.healthScore <= 0) {
+        minorerrors.healthScore = "The healt has to be lower than 100";
+    } else if (!input.diets) {
+        minorerrors.diets = "Select one type of diet at least";
+    }    
+    return minorerrors;
 }
 
 export default function RecipeCreate() {
@@ -30,13 +32,13 @@ export default function RecipeCreate() {
     const history = useHistory()
     const diets = useSelector((state) => state.diets)
     const [errors, setError] = useState({})
+    const [minorerrors, setminorError] = useState({})
 
     const [input, setInput] = useState({
         name: "",
         dish_summary: "",
-        image: "",
-        score: 0,
         healthScore: 0,
+        // image: "",
         instructions: "",
         diets: [],
     })
@@ -50,11 +52,18 @@ export default function RecipeCreate() {
             ...input,
             diets: input.diets.filter(d => d !== el)
         })
-        setError(                          
-            validate({
+        // setError(                          
+        //     validate({
+        //         ...input,
+        //         [e.target.name]: e.target.value,  
+        //     })
+        // )
+        setminorError(
+            validateminor({
                 ...input,
-                [e.target.name]: e.target.value,  
-            }))
+                [e.target.name]: e.target.value, 
+            })
+        )
     }
 
     function handleChange(e) {
@@ -68,7 +77,13 @@ export default function RecipeCreate() {
                 ...input,
                 [e.target.name]: e.target.value,  
             })
-        );
+        )
+        setminorError(
+            validateminor({
+                ...input,
+                [e.target.name]: e.target.value, 
+            })
+        )
     }
 
     function handleSelect(e) {
@@ -80,30 +95,34 @@ export default function RecipeCreate() {
             })
         }
         e.target.value = 'vacio'
-        setError(                          
-            validate({
+        // setError(                          
+        //     validate({
+        //         ...input,
+        //         [e.target.name]: e.target.value,  
+        //     })
+        // );
+        setminorError(
+            validateminor({
                 ...input,
-                [e.target.name]: e.target.value,  
+                [e.target.name]: e.target.value, 
             })
-        );
+        )
     }
 
     function handleSubmit(e) {  
         if(Object.keys(errors).length === 0) { 
-        e.preventDefault()
-        dispatch(postRecipe(input))
-        alert('Receta creada con éxito')
-        setInput({                          
+          e.preventDefault()
+          dispatch(postRecipe(input))
+          alert('Successfully created recipe!')
+          setInput({                          
             name: "",
             dish_summary: "",
-            image: "",
-            score: 0,
             healthScore: 0,
+            // image: "",
             instructions: "",
             diets: []
-
-        })
-        history.push('/home')  
+          })
+          history.push('/home')  
         }
         e.preventDefault()
     }
@@ -112,10 +131,10 @@ export default function RecipeCreate() {
         <div className={style.contains}>
             <form className={style.form}
                 onSubmit={(e) => handleSubmit(e)}>
-            <Link to='/home'><button className={style.button}>BACK</button></Link>
-                <div >
-                    <h1>CREATE YOUR RECIPE!</h1>
-                    <h2>Recipe name:</h2>
+                <Link to='/home'><button className={style.button}>BACK</button></Link>
+                <div>
+                    <h1 id={style.title}>CREATE YOUR RECIPE</h1>
+                    <h2>* Recipe name:</h2>
                     <input className={style.input}
                         type="text"
                         value={input.name}
@@ -124,10 +143,9 @@ export default function RecipeCreate() {
                         onChange={(e) => handleChange(e)}
                     />
                     {errors.name && <p className={style.err}> {errors.name}</p>}
-
                 </div>
                 <div>
-                    <h2>Dish Summary:</h2>
+                    <h2>* Dish Summary:</h2>
                     <textarea className={style.summary}
                         type="text"
                         value={input.dish_summary}
@@ -135,73 +153,56 @@ export default function RecipeCreate() {
                         name="dish_summary"
                         onChange={(e) => handleChange(e)}
                     />
-                    {errors.dish_summary && <p className={style.err}> {errors.dish_summary}</p>}</div>
-                <div>
-                    <div>
-                        <h2>Optional Image: </h2>
-                        <input className={style.input}
-                            type="text"
-                            value={input.image}
-                            required
-                            name="image"
-                            placeholder="URL image"
-                            onChange={(e) => handleChange(e)}
-                        />
-                    </div>
-                    <h2>Score:</h2>
-                    <input className={style.input}
-                        type="number"
-                        required
-                        name="score"
-                        onChange={(e) => handleChange(e)}
-                    />
-                    {errors.score && <p className={style.err}> {errors.score}</p>}
-
+                    {errors.dish_summary && <p className={style.err}> {errors.dish_summary}</p>}
                 </div>
                 <div>
                     <h2>Health Score:</h2>
-                    <input className={style.input}
+                    <input className={style.smallinput}
                         type="number"
-                        required
                         name="healthScore"
                         onChange={(e) => handleChange(e)}
                     />
-                    {errors.healthScore && <p className={style.err}> {errors.healthScore}</p>}
-
+                    {minorerrors.healthScore && <p className={style.err}> {minorerrors.healthScore}</p>}
                 </div>
+                {/* <div>
+                    <h2>Optional Image: </h2>
+                    <input className={style.input}
+                        type="text"
+                        value={input.image}
+                        name="image"
+                        placeholder="URL image"
+                        onChange={(e) => handleChange(e)}
+                    />
+                </div> */}
                 <div>
                     <h2>Steps:</h2>
                     <textarea className={style.steps}
                         type="textarea"
                         value={input.steps}
-                        required
                         name="instructions"
                         onChange={(e) => handleChange(e)}
-                        />
-                        {errors.instructions && <p className={style.err}> {errors.instructions}</p>}
+                    />
+                    {/* {errors.instructions && <p className={style.err}> {errors.instructions}</p>} */}
                 </div>
-                    <h2>Select diets:</h2>
+                <h2>Select diets:</h2>
                 <select className={style.diets}
-                onChange={(e) => handleSelect(e)}>
-                    <option hidden selected value='vacio'>Diets..</option>
+                    onChange={(e) => handleSelect(e)}>
+                    <option hidden selected value='vacio'>Diets...</option>
                     {diets?.map((d, index) => (
-                        <option key={index} value={d.name}>{d.name}</option>
-                        ))}
+                       <option key={index} value={d.name}>{d.name}</option>
+                    ))}
                 </select>
-                {errors.diets && <p className={style.err}> {errors.diets}</p>}
-                <h3>{input.diets.map(el => el.toUpperCase() + ", ")}</h3> 
+                {minorerrors.diets && <p className={style.err}> {minorerrors.diets}</p>}
                 <div className={style.inputDiets}>
-                {input.diets.map((el, index) =>
-                    <div key={'typeDiet'+ index} className={style.subcontains}>
-                    <button className={style.buttonDelete}
-                    onClick={(e) => handleDelete(e, el)}>X</button>
-                    <h3>{el}</h3>
-                    </div>
+                    {input.diets.map((el, index) =>
+                      <div key={'typeDiet'+ index} className={style.showdiets}>
+                          <button  className={style.buttonDelete}  onClick={(e) => handleDelete(e, el)}>X</button>
+                          <h3>{el}</h3>
+                      </div>
                     )}
                 </div>
                 <button className={style.buttonCreate} type="submit">Create your recipe</button>
             </form>
-
         </div>
     )
 }

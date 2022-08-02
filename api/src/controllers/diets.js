@@ -22,8 +22,8 @@ router.get('/', function(req, res, next) {
     })
 
     return Diet.findAll()
-     .then(r => res.json(r))
-     .catch(error => next(error))
+    .then(r => res.json(r))
+    .catch((error) => {return error;})
 });
 
 module.exports = router;

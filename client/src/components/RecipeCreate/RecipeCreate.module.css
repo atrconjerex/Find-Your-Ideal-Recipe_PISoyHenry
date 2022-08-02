@@ -8,8 +8,10 @@
 
 .form{
     background: rgba(81, 129, 131, 0.589);
+    background-size: cover;
     padding: 10px;
-    margin: 50px  auto;
+    padding-bottom: 40px;
+    margin: 50px auto;
     width: 800px;
     border-radius: 20px;
     font-family: 'Archivo Black';
@@ -24,6 +26,19 @@
     border-color:#1c1d1c;
     height: 28px;
     width: 400px;
+    font-weight: 510;
+    text-align: left;
+    opacity: 0.75;
+    margin-bottom: 5px;
+}
+
+.smallinput{
+    border: solid 1px rgba(28, 29, 28, 0.418);
+    border-radius: 20px;
+    text-indent: 10px;
+    border-color:#1c1d1c;
+    height: 28px;
+    width: 200px;
     font-weight: 510;
     text-align: left;
     opacity: 0.75;
@@ -65,17 +80,16 @@
 .diets{
     border: solid 1px rgba(28, 29, 28, 0.418);
     border-radius: 23px;
-    text-indent: 1px;
+    text-indent: 8px;
     border-color:#1c1d1c;
     height: 28px;
+    width: 200px;
     font-weight: 510;
     text-align: left;
-    margin-left: 3px;
-    margin-right: 3px;
-    margin-bottom: 5px;
+    margin-bottom: 30px;
     opacity: 0.75;
 }  
-  
+
 .button {
     float: right;
     font-family: 'Archivo Black';
@@ -83,12 +97,12 @@
     border: 2px solid #060509;
     border-radius: 15px;
     color: #ffffff;
+    text-align: center;
     cursor: pointer;
     font-size: 16px;
     padding: 10px;
-    text-align: center;
-    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
     width: 100px;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
     will-change: transform;
 }
 
@@ -132,14 +146,13 @@
 }
 
 
-.subcontains{
+.showdiets{
     font-family: 'Archivo Black';
-    margin: 10px;
+    margin-bottom: 30px;
+    margin-inline: 10px;
     border-radius: 15px;
-    padding: 10px;
-    width: 300px;
+    width: 200px;
     background-color: rgba(96, 158, 122, 0.63);
-    text-align: center;
     text-transform: capitalize;
 }
   
@@ -186,12 +199,13 @@
 
 .inputDiets {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: center;
+    
 }
 
 .err {
-    color: red;
-    font-size: 18px;
-    -webkit-text-stroke: 0.5px black;
+    color: rgb(255, 21, 21);
+    font-size: 20px;
+    -webkit-text-stroke: 0.4px black;
 }

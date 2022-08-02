@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico&family=Archivo+Black');
 
+.title {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
 .card {
     font-family: 'Pacifico';
     background: rgba(238, 238, 227, 0.787);
-    height: 500px;
+    height: 520px;
+    max-height: 550px;
     width: 350px;
     backdrop-filter: blur(6px);
     border: 10px solid #1c1d1c;
@@ -12,6 +18,7 @@
     border: 3px solid black;
     color: #000000;
     opacity: 60%;
+    transition: box-shadow 0.5s ease;
 }
 
 .card:hover {
@@ -27,12 +34,14 @@
 
 
 .image{
-    height: 200px;
+    height: 190px;
+    max-height: 200px;
     width: 300px;
-    margin: 20px;
+    border-bottom: 50px;
     border: 3px solid rgba(162, 211, 152, 0.705);
     box-shadow: rgba(88, 226, 111, 0.788) 0 8px 15px;
     border-radius: 15px;
+    object-fit: cover;
 }
 
 .diet{
