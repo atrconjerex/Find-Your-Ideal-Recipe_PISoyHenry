@@ -16,7 +16,7 @@
 .button{
     font-family: 'Archivo Black';
     background-color: #25c45a;
-    border: 2px solid #060509;
+    border: 1px solid #060509;
     border-radius: 15px;
     color: #ffffff;
     cursor: pointer;
@@ -44,7 +44,7 @@
 .CPbutton {
     font-family: 'Archivo Black';
     background-color: #3ff2b9;
-    border: 2px solid #060509;
+    border: 1px solid #060509;
     border-radius: 15px;
     color: #ffffff;
     cursor: pointer;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getRecipeDetail} from '../../actions/actions';
+import { getRecipeDetail, clean} from '../../actions/actions';
 import style from './Detail.module.css'
 
 export default function Detail() {
@@ -11,9 +11,11 @@ export default function Detail() {
 
     useEffect(() => {
         dispatch(getRecipeDetail(id)) 
+        return () => dispatch(clean())
     }, [dispatch, id])
 
     const recipeDetail = useSelector(state => state.detail)
+    
 
     return(
         <div className={style.contains}>

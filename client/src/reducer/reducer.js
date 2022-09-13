@@ -1,4 +1,4 @@
-import { GET_RECIPES, GET_DIETS, GET_FILTER_BY_TYPE, GET_FILTER_BY_SCORE, GET_FILTER_BY_NAME, GET_NAME_RECIPES, GET_DETAIL} from "../actions/actions";
+import { GET_RECIPES, GET_DIETS, GET_FILTER_BY_TYPE, GET_FILTER_BY_SCORE, GET_FILTER_BY_NAME, GET_NAME_RECIPES, GET_DETAIL, CLEAN} from "../actions/actions";
 
 const initialStae = {
     recipes: [],
@@ -82,6 +82,11 @@ function rootReducer (state = initialStae, action) {
                 ...state,
                 recipes: recipesByScore
             }
+        case CLEAN:
+            return {
+                ...state,
+                detail: [] 
+            }    
         default: 
             return state
     }

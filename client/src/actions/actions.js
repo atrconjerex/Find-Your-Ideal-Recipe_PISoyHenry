@@ -7,6 +7,7 @@ export const GET_FILTER_BY_SCORE = 'GET_FILTER_BY_SCORE'
 export const GET_FILTER_BY_NAME = 'GET_FILTER_BY_NAME'
 export const GET_NAME_RECIPES = 'GET_NAME_RECIPES'
 export const GET_DETAIL = 'GET_DETAIL'
+export const CLEAN = 'CLEAN'
 
 export function getRecipes() {
     return async function (dispatch) {
@@ -63,6 +64,10 @@ export function getNameRecipes(name) { //via query obtengo nombre de receta
     return async function (dispatch) {
         try {
             var json = await axios.get(`http://localhost:3001/recipes?name=${name}`)
+            if(!name) {
+                alert('The results do not match with the requested name')
+                return "The results do not match with the requested name"
+            }
             return dispatch({
                 type: GET_NAME_RECIPES,
                 payload: json.data
@@ -98,5 +103,14 @@ export function postRecipe(payload) {
             return error;
         }) 
         return data;
+    }
+}
+
+export function clean() {
+    return async function (dispatch) {
+        return dispatch({
+            type: CLEAN
+        })
+     
     }
 }
