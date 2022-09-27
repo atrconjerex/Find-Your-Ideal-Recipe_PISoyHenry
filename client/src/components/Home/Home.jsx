@@ -102,8 +102,9 @@ export default function Home() {
                 <Card key = {el.ID} id={el.ID} name={el.name} diets={el.diets} image={el.image}/>
               </Link>
             ) 
-          }) : <p className={style.loading}> Loading... </p>
-          }
+          }) : (<div className={style.loading}> Loading... </div>,
+              <img src="https://media.giphy.com/media/A5ugHVbuFL3uo/giphy.gif" />
+          )}
         </div>
         <Paginate 
           key = {1}
