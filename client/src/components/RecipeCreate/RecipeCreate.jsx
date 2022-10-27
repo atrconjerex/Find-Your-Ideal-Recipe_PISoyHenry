@@ -38,13 +38,11 @@ export default function RecipeCreate() {
         name: "",
         dish_summary: "",
         healthScore: 0,
-        // image: "",
         instructions: "",
         diets: [],
     })
 
     useEffect(() => { dispatch(getDiets()) }, [dispatch])
-
 
     function handleDelete(e, el) {
         e.preventDefault()

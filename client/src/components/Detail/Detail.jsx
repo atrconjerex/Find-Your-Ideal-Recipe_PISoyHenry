@@ -8,7 +8,7 @@ import style from './Detail.module.css'
 export default function Detail() {
     const dispatch = useDispatch()
     const { id } = useParams()
-    const history = useHistory();
+    // const history = useHistory();
 
     useEffect(() => {
         dispatch(getRecipeDetail(id)) 
@@ -16,15 +16,18 @@ export default function Detail() {
     }, [dispatch, id])
 
     const recipeDetail = useSelector(state => state.detail)
-    const handleEdit = () => {
-        history.push('./recipe', { state: { 
-            name: recipeDetail[0].name,
-            dish_summary: recipeDetail[0].dish_summary,
-            healthScore: recipeDetail[0].healthScore,
-            instructions: recipeDetail[0].instructions,
-            diets: recipeDetail[0].diets
-        }});
-    }
+    // const handleEdit = () => {
+    //     history.push({
+    //         pathname: '/recipe', 
+    //         state: { 
+    //             name: recipeDetail[0].name,
+    //             dish_summary: recipeDetail[0].dish_summary,
+    //             healthScore: recipeDetail[0].healthScore,
+    //             instructions: recipeDetail[0].instructions,
+    //             diets: recipeDetail[0].diets
+    //         }
+    //     });
+    // }
 
     return(
         <div className={style.contains}>
@@ -34,9 +37,9 @@ export default function Detail() {
                        <button className={style.button}>HOME</button>
                     </Link>
                 </div>
-                <div className={style.buttonRight}>
+                {/* <div className={style.buttonRight}>
                     <button className={style.button} onClick={() => handleEdit()}>Edit Recipe</button>  
-                </div>
+                </div> */}
                 {recipeDetail.length > 0 ?
                     <div>
                         <h1 className={style.title}>
